@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class,'index'])->name('index');
+Route::get('/contact.html', [HomeController::class,'contact'])->name('contact');
 Route::get('/test', [HomeController::class,'test'])->name('test');
 Route::get('/prm/{id}/{number}', [HomeController::class,'param'])->name('param');
 Route::post('/save', [HomeController::class,'save'])->name('save');
