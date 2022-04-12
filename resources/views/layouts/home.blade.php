@@ -24,19 +24,19 @@
 </head>
 
 <body>
-@include("home._header")
-@include("home._navbar")
-@include("home._carousel")
-@include("home._topFeature")
-@include("home._about")
-@include("home._service")
-@include("home._feature")
-@include("home._team")
-@include("home._faqs")
-@include("home._testimonial")
-@include("home._blog")
-@include("home._newsletter")
-@include("home._footer")
+@include("home.components._header")
+@include("home.components._navbar")
+@include("home.components._carousel")
+@include("home.components._topFeature")
+@include("home.components._about")
+@include("home.components._service")
+@include("home.components._feature")
+@include("home.components._team")
+@include("home.components._faqs")
+@include("home.components._testimonial")
+@include("home.components._blog")
+@include("home.components._newsletter")
+@include("home.components._footer")
 
 </body>
 </html>

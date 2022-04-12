@@ -21,6 +21,12 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class,'index'])->name('index');
 Route::get('/contact.html', [HomeController::class,'contact'])->name('contact');
+Route::get('/about.html', [HomeController::class,'about'])->name('about');
+Route::get('/team.html', [HomeController::class,'team'])->name('team');
+Route::get('/blog.html', [HomeController::class,'blog'])->name('blog');
+Route::get('/service.html', [HomeController::class,'service'])->name('service');
+Route::get('/single.html', [HomeController::class,'single'])->name('single');
+Route::get('/portfolio.html', [HomeController::class,'portfolio'])->name('portfolio ');
 Route::get('/test', [HomeController::class,'test'])->name('test');
 Route::get('/prm/{id}/{number}', [HomeController::class,'param'])->name('param');
 Route::post('/save', [HomeController::class,'save'])->name('save');
