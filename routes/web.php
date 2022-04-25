@@ -34,5 +34,8 @@ Route::post('/save', [HomeController::class,'save'])->name('save');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/admin',[\App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin');
 
+Route::get('/admin',[\App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin');
+//ADMIN CATEGORY ROUTE
+Route::get('/admin/category',[\App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin_cat_index');
+Route::get('/admin/category/create',[\App\Http\Controllers\Admin\CategoryController::class,'create'])->name('admin_cat_create');
