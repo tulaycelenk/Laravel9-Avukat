@@ -39,3 +39,4 @@ Route::get('/admin',[\App\Http\Controllers\Admin\HomeController::class,'index'])
 //ADMIN CATEGORY ROUTE
 Route::get('/admin/category',[\App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin_cat_index');
 Route::get('/admin/category/create',[\App\Http\Controllers\Admin\CategoryController::class,'create'])->name('admin_cat_create');
+Route::post('/admin/category/store',[\App\Http\Controllers\Admin\CategoryController::class,'store'])->name('admin_cat_store');

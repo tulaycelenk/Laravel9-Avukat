@@ -13,9 +13,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.category.index');
+    public function index(){
+        $data=Category::all();
+        return view('admin.category.index',['data' => $data]);
     }
 
     /**
@@ -36,7 +36,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new Category();
+        $data->parentid=0;
+        $data->title=$request->title;
+        $data->keywords=$request->keywords;
+        $data->description=$request->description;
+        $data->status=$request->status;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
+        }
+        $data->save();
+        /** Categories wil be shown */
+        return redirect('admin/category');
+
     }
 
     /**

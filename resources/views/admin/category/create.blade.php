@@ -2,46 +2,60 @@
 
 @section('title','Add Category')
 
-<div id="page-wrapper">
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="page-head-line">ADD CATEGORY</h1>
-                <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+@section('pageInner')
 
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line">ADD CATEGORY</h1>
+
         </div>
-
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    BASIC FORM
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Enter Name</label>
-                            <input class="form-control" type="text">
-                            <p class="help-block">Help text here.</p>
-                        </div>
-                        <div class="form-group">
-                            <label>Enter Email</label>
-                            <input class="form-control" type="text">
-                            <p class="help-block">Help text here.</p>
-                        </div>
-                        <div class="form-group">
-                            <label>Text area</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-
-
-                        <button type="submit" class="btn btn-info">Send Message </button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
     </div>
-    <!-- /. PAGE INNER  -->
-</div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                ADD CATEGORY
+            </div>
+            <div class="panel-body">
+                <form role="form" action="store" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" type="text" name="title" placeholder="Title">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Keywords</label>
+                        <input class="form-control" type="text" name="keywords" placeholder="Keywords">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input class="form-control" type="text" name="description" placeholder="Description">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile03" name="image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                            <option>True</option>
+                            <option>False</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+@endsection

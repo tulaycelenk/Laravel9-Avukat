@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Bootstrap Advance Admin Template</title>
+    <title>@yield('title')</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{{asset('assets')}}/admin/css/bootstrap.css" rel="stylesheet" />
@@ -16,13 +16,13 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body>
-<div id="wrapper">
-    @include('admin.A_header')
-    @include('admin.A_sidebar')
-    @include('admin.A_wrapper')
+    <body>
+        <div id="wrapper">
+            @include('admin.A_header')
+            @include('admin.A_sidebar')
+            @include('admin.A_wrapper')
 
-</div>
-@include('admin.A_footer')
-</body>
+        </div>
+    @include('admin.A_footer')
+    </body>
 </html>
