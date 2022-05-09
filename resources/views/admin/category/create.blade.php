@@ -22,17 +22,14 @@
                     <div class="form-group">
                         <label>Title</label>
                         <input class="form-control" type="text" name="title" placeholder="Title">
-                        <p class="help-block">Help text here.</p>
                     </div>
                     <div class="form-group">
                         <label>Keywords</label>
                         <input class="form-control" type="text" name="keywords" placeholder="Keywords">
-                        <p class="help-block">Help text here.</p>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
                         <input class="form-control" type="text" name="description" placeholder="Description">
-                        <p class="help-block">Help text here.</p>
                     </div>
                     <div class="form-group">
                         <div class="input-group mb-3">

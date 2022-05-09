@@ -11,14 +11,50 @@
                         <small>Last Login : 2 Weeks Ago </small>
                     </div>
                 </div>
+            </li>
+            <li>
+                <a href="/admin/category"><i class="fa fa-solid fa-border-all"></i>Categories</a>
+            </li>
+            <li>
+                <a href="/admin/service"><i class=" fa fa-solid fa-briefcase"></i>Services</a>
+            </li>
+            <li>
+                <a href="/admin/appointment"><i class="fa fa-solid fa-calendar-check"></i>Appointments</a>
+            </li>
+            <li>
+                <a href="/admin/comment"><i class="fa fa-solid fa-comments"></i>Comments</a>
+            </li>
+            <li>
+                <a href="/admin/faq"><i class="fa fa-solid fa-question"></i>FAQs</a>
+            </li>
+            <li>
+                <a href="/admin/message"><i class="fa fa-solid fa-envelope"></i>Messages</a>
+            </li>
+            <li>
+                <a href="/admin/social"><i class="fa fa-solid fa-hashtag"></i>Social</a>
+            </li>
+            <li>
+                <a href="/admin/user"><i class="fa fa-solid fa-users"></i>Users</a>
+            </li>
 
-            </li>
+
             <li>
-                <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-desktop "></i>Services <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>New Services</a>
+                    </li>
+                    <li>
+                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Accepted Services</a>
+                    </li>
+                    <li>
+                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Services In Progress</a>
+                    </li>
+                    <li>
+                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Completed Services</a>
+                    </li>
+
+
                     <li>
                         <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Tabs &amp; Panels</a>
                     </li>
@@ -43,8 +79,6 @@
                     <li>
                         <a href="grid.html"><i class="fa fa-eyedropper "></i>Grid</a>
                     </li>
-
-
                 </ul>
             </li>
             <li>
@@ -67,12 +101,10 @@
                         <a href="message-task.html"><i class="fa fa-recycle "></i>Messages &amp; Tasks</a>
                     </li>
 
-
                 </ul>
             </li>
             <li>
                 <a href="table.html"><i class="fa fa-flash "></i>Data Tables </a>
-
             </li>
             <li>
                 <a href="#"><i class="fa fa-bicycle "></i>Forms <span class="fa arrow"></span></a>
@@ -84,15 +116,13 @@
                     <li>
                         <a href="form-advance.html"><i class="fa fa-code "></i>Advance</a>
                     </li>
-
-
                 </ul>
             </li>
             <li>
                 <a href="gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
             </li>
             <li>
-                <a href="error.html"><i class="fa fa-bug "></i>Error Page</a>
+                <a href="/admin/setting"><i class="fa fa-solid fa-gear"></i>Settings</a>
             </li>
             <li>
                 <a href="login.html"><i class="fa fa-sign-in "></i>Login Page</a>
@@ -115,9 +145,7 @@
                             <li>
                                 <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
                             </li>
-
                         </ul>
-
                     </li>
                 </ul>
             </li>

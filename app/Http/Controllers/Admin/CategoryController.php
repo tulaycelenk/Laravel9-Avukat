@@ -46,7 +46,7 @@ class CategoryController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        /** Categories wil be shown */
+        /** Categories will be shown */
         return redirect('admin/category');
 
     }
@@ -68,9 +68,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
         //
+        $data=Category::find($id);
+        return view('admin.category.edit',['data' => $data]);
     }
 
     /**
@@ -80,9 +82,21 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category,$id)
     {
         //
+        $data=Category::find($id);
+        $data->parentid=0;
+        $data->title=$request->title;
+        $data->keywords=$request->keywords;
+        $data->description=$request->description;
+        $data->status=$request->status;
+        if ($request->file('image')) {
+            $data->image = $request->file('image')->store('images');
+        }
+        $data->save();
+        /** Categories will be shown */
+        return redirect('admin/category');
     }
 
     /**

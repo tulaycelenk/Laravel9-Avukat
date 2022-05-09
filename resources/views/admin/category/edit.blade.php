@@ -1,22 +1,55 @@
 @extends('layouts.admin')
 
-@section('title','Category List')
+@section('title','Edit Category')
 
 @section('pageInner')
+
     <div class="row">
         <div class="col-md-12">
-            <h1 class="page-head-line">CATEGORY LİST</h1>
-            <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+            <h1 class="page-head-line">EDIT {{$data->title}}</h1>
 
         </div>
     </div>
-    <!-- /. ROW  -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-info">
-                This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
-                <br>
-                Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                EDIT CATEGORY
+            </div>
+            <div class="panel-body">
+                <form role="form" action="update/{{$data->id}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" type="text" name="title" value="{{$data->title}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Keywords</label>
+                        <input class="form-control" type="text" name="keywords" value="{{$data->keywords}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input class="form-control" type="text" name="description" value="{{$data->description}}">
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile03" ame="image" value="{{$data->image}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                            <option>True</option>
+                            <option>False</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info">Update</button>
+
+                </form>
             </div>
         </div>
     </div>

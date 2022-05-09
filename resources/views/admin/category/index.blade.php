@@ -3,6 +3,7 @@
 @section('title','Category List')
 
 @section('pageInner')
+    <a href ="/admin/category/create" class="btn btn-info">Add Category</a>
         <div class="row">
             <div class="col-md-12">
                 <h1 class="page-head-line">CATEGORY LIST</h1>
@@ -36,9 +37,9 @@
                         <td>{{$rs->description}}</td>
                         <th>{{$rs->image}}</th>
                         <td>{{$rs->status}}</td>
-                        <td><a href="/admin/category/edit{{$rs->id}}" class="btn btn-success">Edit</a> </td>
-                        <td><a href="/admin/category/delete{{$rs->id}}" class="btn btn-danger">Delete</a> </td>
-                        <td><a href="/admin/category/show{{$rs->id}}" class="btn btn-info">Show</a> </td>
+                        <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-success">Edit</a> </td>
+                        <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-danger">Delete</a> </td>
+                        <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-info">Show</a> </td>
                     </tr>
 
                     @endforeach
