@@ -1,27 +1,63 @@
 @extends('layouts.admin')
 
-@section('title','Category List')
+@section('title','Category :'.$data->title)
 
-<div id="page-wrapper">
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="page-head-line">CATEGORY LİST</h1>
-                <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+@section('pageInner')
 
-            </div>
-        </div>
-        <!-- /. ROW  -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-info">
-                    This is a free responsive admin under cc3.0 license, so you can use it for personal and commercial use.
-                    <br>
-                    Enjoy this admin and for more please keep looking <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">{{$data->title}}</h1>
+
                 </div>
             </div>
-        </div>
+            <!-- /. ROW  -->
+            <table class="table">
 
-    </div>
-    <!-- /. PAGE INNER  -->
-</div>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">{{$data->id}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">{{$data->title}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Keywords</th>
+                    <th scope="col">{{$data->keywords}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">{{$data->description}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col"></th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">{{$data->status}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">{{$data->created_at}}</th>
+
+                </tr>
+                <tr>
+                    <th scope="col">Update Date</th>
+                    <th scope="col">{{$data->updated_at}}</th>
+
+                </tr>
+            </table>
+
+            <td><a href="/admin/category/edit/{{$data->id}}" class="btn btn-success">Edit</a> </td>
+            <td><a href="/admin/category/destroy/{{$data->id}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> </td>
+        </div>
+        <!-- /. PAGE INNER  -->
+@endsection

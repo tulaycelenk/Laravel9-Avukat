@@ -38,7 +38,7 @@
                         <th>{{$rs->image}}</th>
                         <td>{{$rs->status}}</td>
                         <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-success">Edit</a> </td>
-                        <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-danger">Delete</a> </td>
+                        <td><a href="/admin/category/delete/{{$rs->id}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> </td>
                         <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-info">Show</a> </td>
                     </tr>
 
