@@ -56,8 +56,8 @@
                 </tr>
             </table>
 
-            <td><a href="/admin/category/edit/{{$data->id}}" class="btn btn-success">Edit</a> </td>
-            <td><a href="/admin/category/destroy/{{$data->id}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> </td>
+            <td><a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-success">Edit</a> </td>
+            <td><a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> </td>
         </div>
         <!-- /. PAGE INNER  -->
 @endsection
