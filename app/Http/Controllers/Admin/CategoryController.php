@@ -50,7 +50,6 @@ class CategoryController extends Controller
         return redirect('admin/category');
 
     }
-
     /**
      * Display the specified resource.
      *
@@ -63,7 +62,6 @@ class CategoryController extends Controller
         return view('admin.category.show',['data' => $data]);
 
             }
-
     /**
      * Show the form for editing the specified resource.
      *

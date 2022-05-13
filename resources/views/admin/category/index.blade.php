@@ -35,9 +35,13 @@
                         <td>{{$rs->title}}</td>
                         <td>{{$rs->keywords}}</td>
                         <td>{{$rs->description}}</td>
-                        <th>{{$rs->image}}</th>
+                        <th>
+                            @if ($rs->image)
+                                <img src="{{Storage::url($rs->image)}}" style="height : 40px">
+                            @endif
+                            </th>
                         <td>{{$rs->status}}</td>
-                        <td><a href="{{route('admin.category.create',['id'=>$rs->id])}}" class="btn btn-success">Edit</a> </td>
+                        <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-success">Edit</a> </td>
                         <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a> </td>
                         <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-info">Show</a> </td>
                     </tr>
