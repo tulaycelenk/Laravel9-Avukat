@@ -13,14 +13,13 @@
         </div>
         <!-- /. ROW  -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th scope="col">Id</th>
+                        <th scope="col">Parent</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Keywords</th>
-                        <th scope="col">Description</th>
                         <th scope="col">Image</th>
                         <th scope="col">Status</th>
                         <th scope="col" >Edit</th>
@@ -32,9 +31,8 @@
                     @foreach( $data as $rs)
                     <tr>
                         <th>{{$rs->id}}</th>
+                        <td>{{\app\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</td>
                         <td>{{$rs->title}}</td>
-                        <td>{{$rs->keywords}}</td>
-                        <td>{{$rs->description}}</td>
                         <th>
                             @if ($rs->image)
                                 <img src="{{Storage::url($rs->image)}}" style="height : 40px">

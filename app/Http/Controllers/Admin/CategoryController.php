@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    protected $appends =[
+        'getParentsTree'
+    ];
+
+    public static function getParentsTree($category,$title){
+        if ($category->parentid==0)
+            return $title;
+        $parent =Category::find($category->parentid);
+        $title = $parent->title . '>'.$title;
+        return Categorycontroller::getParentsTree($parent,$title);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +37,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $data=Category::all();
+        return view('admin.category.create',['data' => $data]);
     }
 
     /**
@@ -38,7 +50,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data=new Category();
-        $data->parentid=0;
+        $data->parentid=$request->parentid;
         $data->title=$request->title;
         $data->keywords=$request->keywords;
         $data->description=$request->description;
@@ -72,8 +84,13 @@ class CategoryController extends Controller
     public function edit(Category $category,$id)
     {
         //
+
         $data=Category::find($id);
-        return view('admin.category.edit',['data' => $data]);
+        $datalist=Category::all();
+        return view('admin.category.edit',
+            ['data' => $data,
+            'datalist' => $datalist
+        ]);
     }
 
     /**
@@ -87,7 +104,7 @@ class CategoryController extends Controller
     {
         //
         $data=Category::find($id);
-        $data->parentid=0;
+        $data->parentid=$request->parentid;
         $data->title=$request->title;
         $data->keywords=$request->keywords;
         $data->description=$request->description;
@@ -113,4 +130,5 @@ class CategoryController extends Controller
         $data->delete();
         return redirect('admin/category');
     }
+    //if($data->image && Storage::disk('public')->exists($data->image))  Storage::delete($data->image);
 }
