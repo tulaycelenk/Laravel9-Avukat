@@ -24,8 +24,10 @@
                         <select class="form-control" name="parentid" style="...">
                             <option value="0" selected="selected">Main Category</option>
                             @foreach($datalist as $rs)
+                                @if($rs->id != $data->id)
                                 <option value="{{$rs->id}}" @if($rs->id==$data->parentid) selected="selected" @endif>
                                     {{\app\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

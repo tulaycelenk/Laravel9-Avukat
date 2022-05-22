@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as adminHomeController;
 use App\Http\Controllers\Admin\CategoryController as adminCategoryController;
+use App\Http\Controllers\Admin\ServiceController as adminServiceController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[adminHomeController::class,'index'])->name('index');
     //ADMIN CATEGORY ROUTE
     Route::prefix('/category')->name('category.')->controller(adminCategoryController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}','show')->name('show');
+
+    });
+
+    //ADMIN SERVICE ROUTE
+    Route::prefix('/service')->name('service.')->controller(adminServiceController::class)->group(function () {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
