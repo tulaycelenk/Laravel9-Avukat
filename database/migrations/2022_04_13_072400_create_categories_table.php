@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parentid');
-            $table->string('title');
-            $table->string('image');
-            $table->string('keywords');
-            $table->string('description');
-            $table->string('status');
+            $table->foreignId('parentid')->nullable();
+            $table->string('title')->nullable();
+            $table->string('image')->nullable();
+            $table->string('keywords')->nullable();
+            $table->string('description')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

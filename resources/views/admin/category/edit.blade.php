@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-12">
-         <h1 class="page-head-line">EDIT {{$data->id}}</h1>
+         <h1 class="page-head-line">EDIT {{$data->title}}</h1>
         </div>
     </div>
 
@@ -48,7 +48,7 @@
                             <div class="input-group-prepend">
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile03" ame="image" value="{{$data->image}}">
+                                <input type="file" class="custom-file-input" id="inputGroupFile03" name="image" value="{{$data->image}}">
                             </div>
                         </div>
                     </div>
