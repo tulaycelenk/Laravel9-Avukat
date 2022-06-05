@@ -16,14 +16,17 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    @yield('head')
 </head>
     <body>
-        <div id="wrapper">
-            @include('admin.A_header')
-            @include('admin.A_sidebar')
-            @include('admin.A_wrapper')
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                @yield('image_page')
+            </div>
         </div>
-    @include('admin.A_footer')
+
+
+    </div>
+
     </body>
 </html>
