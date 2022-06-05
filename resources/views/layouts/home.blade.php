@@ -26,7 +26,8 @@
 <body>
 @include("home.components._header")
 @include("home.components._navbar")
-@include("home.components._carousel")
+@section('slider')
+@show
 @include("home.components._topFeature")
 @include("home.components._about")
 @include("home.components._service")

@@ -2,6 +2,9 @@
 
 @section('title','Edit Service')
 
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+@endsection
 @section('pageInner')
 
     <div class="row">
@@ -55,6 +58,20 @@
                                 <input type="file" class="custom-file-input" id="inputGroupFile03" name="image" value="{{$data->image}}">
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Details</label>
+                        <textarea class="form-control" id="detail" name="detail"></textarea>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
