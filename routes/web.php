@@ -4,7 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as adminHomeController;
 use App\Http\Controllers\Admin\CategoryController as adminCategoryController;
 use App\Http\Controllers\Admin\ServiceController as adminServiceController;
-
+use App\Http\Controllers\Admin\ImageController as adminImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,8 +42,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // ADMIN PANEL ROUTES
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[adminHomeController::class,'index'])->name('index');
-    //ADMIN CATEGORY ROUTE
+    //ADMIN CATEGORY ROUTES
     Route::prefix('/category')->name('category.')->controller(adminCategoryController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}','show')->name('show');
+
+    });
+
+    //ADMIN SERVICE ROUTES
+    Route::prefix('/service')->name('service.')->controller(adminServiceController::class)->group(function () {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
@@ -53,16 +64,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/show/{id}','show')->name('show');
 
     });
+    //ADMIN SERVICE IMAGE GALLERY ROUTES
+    Route::prefix('/image')->name('image.')->controller(adminImageController::class)->group(function () {
+        Route::get('/{sid}','index')->name('index');
+        Route::get('/create/{sid}','create')->name('create');
+        Route::post('/store/{sid}','store')->name('store');
+        Route::post('/update/{sid}/{id}','update')->name('update');
+        Route::get('/destroy/{sid}/{id}','destroy')->name('destroy');
 
-    //ADMIN SERVICE ROUTE
-    Route::prefix('/service')->name('service.')->controller(adminServiceController::class)->group(function () {
-        Route::get('/','index')->name('index');
-        Route::get('/create','create')->name('create');
-        Route::post('/store','store')->name('store');
-        Route::get('/edit/{id}','edit')->name('edit');
-        Route::post('/update/{id}','update')->name('update');
-        Route::get('/destroy/{id}','destroy')->name('destroy');
-        Route::get('/show/{id}','show')->name('show');
 
     });
 });
