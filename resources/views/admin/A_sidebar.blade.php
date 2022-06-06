@@ -25,10 +25,10 @@
                 <a href="/admin/comment"><i class="fa fa-solid fa-comments"></i>Comments</a>
             </li>
             <li>
-                <a href="/admin/faq"><i class="fa fa-solid fa-question"></i>FAQs</a>
+                <a href="{{route('admin.faq.index')}}"><i class="fa fa-solid fa-question"></i>FAQs</a>
             </li>
             <li>
-                <a href="/admin/message"><i class="fa fa-solid fa-envelope"></i>Messages</a>
+                <a href="{{route('admin.message.index')}}"><i class="fa fa-solid fa-envelope"></i>Messages</a>
             </li>
             <li>
                 <a href="/admin/social"><i class="fa fa-solid fa-hashtag"></i>Social</a>
@@ -118,36 +118,12 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
-            </li>
+
             <li>
                 <a href="/admin/setting"><i class="fa fa-solid fa-gear"></i>Settings</a>
             </li>
             <li>
                 <a href="login.html"><i class="fa fa-sign-in "></i>Login Page</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level collapse">
-                            <li>
-                                <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </li>
 
             <li>

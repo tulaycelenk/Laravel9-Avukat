@@ -14,6 +14,9 @@ class HomeController extends Controller
     public function contact(){
         return view('home.gather.contact');
     }
+    public function faq(){
+        return view('home.gather.faq');
+    }
     public function about(){
         return view('home.gather.about');
     }

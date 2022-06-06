@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('faqs', function (Blueprint $table) {
-            $table->id();
-            $table->string('question');
-            $table->string('answer');
-            $table->string('status');
+            $table->id()->autoIncrement();
+            $table->string('question')->nullable();
+            $table->text('answer')->nullable();
+            $table->string('status')->nullable()->default('false');
             $table->timestamps();
         });
     }

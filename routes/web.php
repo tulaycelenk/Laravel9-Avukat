@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\HomeController as adminHomeController;
 use App\Http\Controllers\Admin\CategoryController as adminCategoryController;
 use App\Http\Controllers\Admin\ServiceController as adminServiceController;
 use App\Http\Controllers\Admin\ImageController as adminImageController;
+use App\Http\Controllers\Admin\FaqController as adminFAQController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +34,7 @@ Route::get('/single.html', [HomeController::class,'single'])->name('single');
 Route::get('/portfolio.html', [HomeController::class,'portfolio'])->name('portfolio ');
 Route::get('/test', [HomeController::class,'test'])->name('test');
 Route::get('/prm/{id}/{number}', [HomeController::class,'param'])->name('param');
-Route::post('/save', [HomeController::class,'save'])->name('save');
-
+Route::post('/faq', [HomeController::class,'faq'])->name('faq');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -72,6 +73,28 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/update/{sid}/{id}','update')->name('update');
         Route::get('/destroy/{sid}/{id}','destroy')->name('destroy');
 
+
+    });
+    //ADMIN FAQ ROUTES
+    Route::prefix('/faq')->name('faq.')->controller(adminFAQController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}','show')->name('show');
+
+    });
+    //ADMIN FAQ ROUTES
+    Route::prefix('/message')->name('message.')->controller(adminFAQController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}','show')->name('show');
 
     });
 });
