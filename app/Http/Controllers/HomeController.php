@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index(){
         $slider=Service::limit(3)->get();
-        return view('home.gather.index',['slider'=>$slider]);
+
+        //for navbar
+        $categories=Category::Where('parentid', 0)->get();
+        $categoriesForCategoryCard=Category::limit(3)->get();
+        return view('home.gather.index',['slider'=>$slider, 'categories' => $categories, 'categoriesForCategoryCard' => $categoriesForCategoryCard]);
     }
     public function contact(){
         return view('home.gather.contact');
@@ -44,6 +51,19 @@ class HomeController extends Controller
 
         return view('home.test');
     }
+    public function categoryListPage($id){
+        //for navbar
+        $categories=Category::Where('parentid', 0)->get();
+        $services=Service::Where('category_id', $id)->get();
+        return view('home.gather.serviceList', ['categories' => $categories, 'services' => $services]);
+    }
+    public function serviceDetailPage($id){
+        //for navbar
+        $categories=Category::Where('parentid', 0)->get();
+        $service=Service::Where('id', $id)->get()[0];
+        return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
+    }
+
     public function save(){
         echo "Save Function";
         echo "name :", $_REQUEST["fname"];
