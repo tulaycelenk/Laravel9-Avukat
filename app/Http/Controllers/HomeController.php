@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,13 +20,17 @@ class HomeController extends Controller
         return view('home.gather.index',['slider'=>$slider, 'categories' => $categories, 'categoriesForCategoryCard' => $categoriesForCategoryCard]);
     }
     public function contact(){
-        return view('home.gather.contact');
+        $categories=Category::Where('parentid', 0)->get();
+        $setting=Settings::first();
+        return view('home.gather.contact',['setting'=>$setting,'categories' => $categories, ]);
     }
     public function faq(){
         return view('home.gather.faq');
     }
     public function about(){
-        return view('home.gather.about');
+        $categories=Category::Where('parentid', 0)->get();
+        $setting=Settings::first();
+        return view('home.gather.about',['setting'=>$setting,'categories' => $categories, ]);
     }
     public function service(){
         return view('home.gather.practice');
@@ -42,15 +47,16 @@ class HomeController extends Controller
     public function blog(){
         return view('home.gather.blog');
     }
+    public function myAppointments(){
+        $user=Auth::user();
+        $categories=Category::Where('parentid', 0)->get();
+        $appointmentsForUser=Appointment::Where('userid',$user->id)->get();
+        return view('home.gather.myAppointments', ['categories' => $categories, 'appointmentsForUser' => $appointmentsForUser]);
+    }
     public function test(){
         return view('home.test');
     }
-    public function param($id,$number){
-        echo "parameter is: ",$id;
-        echo "<br>second parameter is: ",$number;
 
-        return view('home.test');
-    }
     public function categoryListPage($id){
         //for navbar
         $categories=Category::Where('parentid', 0)->get();
@@ -92,12 +98,7 @@ class HomeController extends Controller
         return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
 
     }
-    public function save(){
-        echo "Save Function";
-        echo "name :", $_REQUEST["fname"];
-        echo "surname :", $_REQUEST["lname"];
 
-    }
 }
 
 
