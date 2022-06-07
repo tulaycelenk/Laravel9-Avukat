@@ -33,16 +33,20 @@ class HomeController extends Controller
         return view('home.gather.about',['setting'=>$setting,'categories' => $categories, ]);
     }
     public function service(){
-        return view('home.gather.practice');
+        $categories=Category::Where('parentid', 0)->get();
+        return view('home.gather.practice',['categories' => $categories, ]);
     }
     public function team(){
-        return view('home.gather.attorneys');
+        $categories=Category::Where('parentid', 0)->get();
+        return view('home.gather.attorneys',['categories' => $categories, ]);
+
     }
     public function single(){
         return view('home.gather.single');
     }
     public function portfolio(){
-        return view('home.gather.studies');
+        $categories=Category::Where('parentid', 0)->get();
+        return view('home.gather.studies',['categories' => $categories, ]);
     }
     public function blog(){
         return view('home.gather.blog');
@@ -76,12 +80,37 @@ class HomeController extends Controller
             'categories' => $categories
         ]);
     }
+    public function registeruser(){
+        //navbar
+        $categories=Category::Where('parentid', 0)->get();
+        return view("home.gather.register", [
+            'categories' => $categories
+        ]);
+    }
     public function logoutuser(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function loginadmin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+
     public function requestForAppointment(Request $request){
         //dd($request);
         $appointment=new Appointment();
