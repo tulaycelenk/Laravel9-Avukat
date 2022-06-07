@@ -15,18 +15,27 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('keywords');
-            $table->string('description');
-            $table->string('company');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('fax');
-            $table->string('email');
-            $table->string('about');
-            $table->string('contact');
-            $table->string('references');
-            $table->string('status');
+            $table->string('title', 150)->nullable();
+            $table->string('keywords')->nullable();
+            $table->string('description')->nullable();
+            $table->string('company',100)->nullable();
+            $table->string('address',150)->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('fax',20)->nullable();
+            $table->string('email',50)->nullable();
+            $table->string('smtpserver',75)->nullable();
+            $table->string('smtpemail',75)->nullable();
+            $table->string('smtppassword',15)->nullable();
+            $table->string('smtpport')->nullable()->default(0);
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
+            $table->text('aboutus')->nullable();
+            $table->text('contact')->nullable();
+            $table->text('references')->nullable();
+            $table->string('icon',50)->nullable();
+            $table->string('status',5)->nullable()->default(0);
             $table->timestamps();
         });
     }
