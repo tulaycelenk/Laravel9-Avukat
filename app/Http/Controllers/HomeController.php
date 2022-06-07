@@ -76,7 +76,22 @@ class HomeController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function requestForAppointment(Request $request){
+        //dd($request);
+        $appointment=new Appointment();
+        $appointment->userid=$request->customerId;
+        $appointment->service_id=$request->service_id;
+        $appointment->lawyer_id=$request->lawyerId;
+        $appointment->date=$request->date;
+        $appointment->time=0;
+        $appointment->payment="Not Approved";
+        $appointment->save();
 
+        $service=Service::Where('id', $request->service_id)->get()[0];
+        $categories=Category::Where('parentid', 0)->get();
+        return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
+
+    }
     public function save(){
         echo "Save Function";
         echo "name :", $_REQUEST["fname"];
