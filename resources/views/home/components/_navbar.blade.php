@@ -9,26 +9,27 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="{{route('index')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('about')}}" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Practice</a>
                     <a href="team.html" class="nav-item nav-link">Attorneys</a>
                     <a href="portfolio.html" class="nav-item nav-link">Case Studies</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories</a>
                         <div class="dropdown-menu">
-                            <a href="blog.html" class="dropdown-item">Blog Page</a>
-                            <a href="single.html" class="dropdown-item">Single Page</a>
                             @foreach($categories as $category)
                                 <a href="/category/{{ $category->id }}" class="dropdown-item">{{ $category->title }}</a>
                             @endforeach
 
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
+
+
+                    <a href="/loginuser"  class="nav-item nav-link">Login</a> /  <a href="/registeruser"  class="nav-item nav-link">Join</a>
                     @auth()
-                        <a href="/logoutuser">Logout</a>
+                        <div>{{Auth::user()->name}}</div>
+                        <a href="/logoutuser" class="nav-item nav-link">Logout</a>
                     @endauth
                 </div>
                 <div class="ml-auto">

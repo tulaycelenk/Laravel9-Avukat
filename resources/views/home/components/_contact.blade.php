@@ -36,7 +36,7 @@
                             <input type="text" class="form-control" placeholder="Adınız ve Soyadınız " required="required">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Telefon Numaranız" required="required">
+                            <input type="number" class="form-control" placeholder="Telefon Numaranız" required="required">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="E-mail" required="required">

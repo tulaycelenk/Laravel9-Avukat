@@ -37,7 +37,11 @@ Route::get('/test', [HomeController::class,'test'])->name('test');
 Route::get('/prm/{id}/{number}', [HomeController::class,'param'])->name('param');
 Route::post('/faq', [HomeController::class,'faq'])->name('faq');
 Route::get('/loginuser', [HomeController::class,'loginuser'])->name('loginuser');
+Route::get('/registeruser', [HomeController::class,'registeruser'])->name('registeruser');
 Route::get('/logoutuser', [HomeController::class,'logoutuser'])->name('logoutuser');
+Route::view('/lgnadmin', 'admin.login');
+Route::get('/loginadmin', [HomeController::class,'loginadmin'])->name('loginadmin');
+
 Route::get('/myAppointments', [HomeController::class,'myAppointments'])->name('myAppointments');
 Route::get('/cancelAppointment/{id}', [adminAppointmentController::class,'cancel'])->name('cancelAppointment');
 
