@@ -16,12 +16,20 @@
                     <a href="portfolio.html" class="nav-item nav-link">Case Studies</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories</a>
                         <div class="dropdown-menu">
                             <a href="blog.html" class="dropdown-item">Blog Page</a>
                             <a href="single.html" class="dropdown-item">Single Page</a>
+                            @foreach($categories as $category)
+                                <a href="/category/{{ $category->id }}" class="dropdown-item">{{ $category->title }}</a>
+                            @endforeach
+
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    @auth()
+                        <a href="/logoutuser">Logout</a>
+                    @endauth
                 </div>
                 <div class="ml-auto">
                     <a class="btn" href="https://htmlcodex.com/law-firm-website-template">Get Appointment</a>
@@ -31,3 +39,4 @@
     </div>
 </div>
 <!-- Nav Bar End -->
+

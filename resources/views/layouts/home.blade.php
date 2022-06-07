@@ -21,6 +21,12 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/css/serviceSlider.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/css/categoryCard.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" integrity="sha512-j+F4W//4Pu39at5I8HC8q2l1BNz4OF3ju39HyWeqKQagW6ww3ZF9gFcu8rzUbyTDY7gEo/vqqzGte0UPpo65QQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/serviceSlider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -30,6 +36,8 @@
 @show
 @include("home.components._topFeature")
 @include("home.components._about")
+@include("home.components._favoriteCategories")
+@include("home.components._favoriteServices")
 @include("home.components._service")
 @include("home.components._feature")
 @include("home.components._team")

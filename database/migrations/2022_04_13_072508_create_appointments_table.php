@@ -20,11 +20,11 @@ return new class extends Migration
             $table->foreignId('lawyer_id');
             $table->string('date');
             $table->string('time');
-            $table->string('price');
+            //$table->string('price');
             $table->string('payment');
-            $table->string('note');
-            $table->string('ip');
-            $table->string('status');
+            $table->string('note')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

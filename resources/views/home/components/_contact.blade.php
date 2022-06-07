@@ -1,7 +1,7 @@
 <div class="contact">
     <div class="container">
         <div class="section-header">
-            <h2>Contact Us</h2>
+            <h2>İletişime Geçin</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -33,19 +33,23 @@
                 <div class="contact-form">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required="required">
+                            <input type="text" class="form-control" placeholder="Adınız ve Soyadınız " required="required">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required="required">
+                            <input type="email" class="form-control" placeholder="Telefon Numaranız" required="required">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" required="required">
+                            <input type="text" class="form-control" placeholder="E-mail" required="required">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Message" required="required"></textarea>
+                            <input type="text" class="form-control" placeholder="Konu" required="required">
                         </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Mesajınız" required="required"></textarea>
+                        </div>
+
                         <div>
-                            <button class="btn" type="submit">Send Message</button>
+                            <button class="btn" type="submit">Gönder</button>
                         </div>
                     </form>
                 </div>
