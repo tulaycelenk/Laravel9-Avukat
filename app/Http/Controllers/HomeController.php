@@ -63,6 +63,19 @@ class HomeController extends Controller
         $service=Service::Where('id', $id)->get()[0];
         return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
     }
+    public function loginuser(){
+        //navbar
+        $categories=Category::Where('parentid', 0)->get();
+        return view("home.gather.login", [
+            'categories' => $categories
+        ]);
+    }
+    public function logoutuser(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 
     public function save(){
         echo "Save Function";
