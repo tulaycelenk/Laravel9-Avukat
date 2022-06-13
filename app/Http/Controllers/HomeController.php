@@ -5,32 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Category;
 use App\Models\Service;
-use App\Models\Settings;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
     public function index(){
+        $page='home';
+        $setting =Setting::first();
         $slider=Service::limit(3)->get();
 
         //for navbar
         $categories=Category::Where('parentid', 0)->get();
         $categoriesForCategoryCard=Category::limit(3)->get();
-        return view('home.gather.index',['slider'=>$slider, 'categories' => $categories, 'categoriesForCategoryCard' => $categoriesForCategoryCard]);
+        return view('home.gather.index',['page'=>$page,'slider'=>$slider, 'categories' => $categories, 'categoriesForCategoryCard' => $categoriesForCategoryCard, 'setting'=>$setting]);
     }
     public function contact(){
         $categories=Category::Where('parentid', 0)->get();
-        $setting=Settings::first();
-        return view('home.gather.contact',['setting'=>$setting,'categories' => $categories, ]);
+        $setting=Setting::first();
+        return view('home.gather.contact',['setting'=>$setting,'categories' => $categories]);
     }
     public function faq(){
         return view('home.gather.faq');
     }
     public function about(){
         $categories=Category::Where('parentid', 0)->get();
-        $setting=Settings::first();
-        return view('home.gather.about',['setting'=>$setting,'categories' => $categories, ]);
+        $setting=Setting::first();
+        return view('home.gather.about',['setting'=>$setting,'categories' => $categories ]);
     }
     public function service(){
         $categories=Category::Where('parentid', 0)->get();
@@ -38,7 +41,7 @@ class HomeController extends Controller
     }
     public function team(){
         $categories=Category::Where('parentid', 0)->get();
-        return view('home.gather.attorneys',['categories' => $categories, ]);
+        return view('home.gather.attorneys',['categories' => $categories ]);
 
     }
     public function single(){
@@ -46,7 +49,7 @@ class HomeController extends Controller
     }
     public function portfolio(){
         $categories=Category::Where('parentid', 0)->get();
-        return view('home.gather.studies',['categories' => $categories, ]);
+        return view('home.gather.studies',['categories' => $categories ]);
     }
     public function blog(){
         return view('home.gather.blog');
@@ -60,7 +63,6 @@ class HomeController extends Controller
     public function test(){
         return view('home.test');
     }
-
     public function categoryListPage($id){
         //for navbar
         $categories=Category::Where('parentid', 0)->get();
@@ -70,7 +72,7 @@ class HomeController extends Controller
     public function serviceDetailPage($id){
         //for navbar
         $categories=Category::Where('parentid', 0)->get();
-        $service=Service::Where('id', $id)->get()[0];
+        $service=Service::Where('id', $id)->first();
         return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
     }
     public function loginuser(){
@@ -93,13 +95,21 @@ class HomeController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-    public function loginadmin(Request $request)
+
+    public function loginadmin(){
+        //navbar
+        $categories=Category::Where('parentid', 0)->get();
+        return view("admin.login", [
+            'categories' => $categories
+        ]);
+    }
+
+    public function loginadmincheck(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -111,6 +121,7 @@ class HomeController extends Controller
         ])->onlyInput('email');
     }
 
+
     public function requestForAppointment(Request $request){
         //dd($request);
         $appointment=new Appointment();
@@ -121,11 +132,9 @@ class HomeController extends Controller
         $appointment->time=0;
         $appointment->payment="Not Approved";
         $appointment->save();
-
         $service=Service::Where('id', $request->service_id)->get()[0];
         $categories=Category::Where('parentid', 0)->get();
         return view('home.gather.serviceDetail', ['categories' => $categories, 'service' => $service]);
-
     }
 
 }

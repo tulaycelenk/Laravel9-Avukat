@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id');
-            $table->foreignId('userid');
-            $table->foreignId('lawyer_id');
-            $table->string('date');
-            $table->string('time');
+            $table->foreignId('service_id')->nullable();
+            $table->foreignId('userid')->nullable();
+            $table->foreignId('lawyer_id')->nullable();
+            $table->string('date')->nullable();
+            $table->string('time')->nullable();
             //$table->string('price');
             $table->string('payment');
             $table->string('note')->nullable();

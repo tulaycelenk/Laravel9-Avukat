@@ -4,12 +4,13 @@
             <li>
                 <div class="user-img-div">
                     <img src="{{asset('assets')}}/admin/img/user.png" class="img-thumbnail">
-
+                    @auth()
                     <div class="inner-text">
-                        Jhon Deo Alex
+                        <a href="#" class="fa fa-solid fa-border-all" >{{Auth::user()->name}}</a>
+                        <a href="{{route('admin.index')}}" class="fa fa-solid fa-border-all" >Logout</a>
                         <br>
-                        <small>Last Login : 2 Weeks Ago </small>
                     </div>
+                    @endauth
                 </div>
             </li>
             <li>
@@ -23,6 +24,9 @@
             </li>
             <li>
                 <a href="/admin/comment"><i class="fa fa-solid fa-comments"></i>Comments</a>
+            </li>
+            <li>
+            <a href="/admin/user"><i class="fa fa-solid fa-comments"></i>Users</a>
             </li>
             <li>
                 <a href="{{route('admin.faq.index')}}"><i class="fa fa-solid fa-question"></i>FAQs</a>

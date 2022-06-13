@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Kanun - Law Firm Website Template</title>
+    <title>Kanun - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Law Firm Website Template" name="keywords">
     <meta content="Law Firm Website Template" name="description">
@@ -22,5 +22,14 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
 </head>
+<body>
 
+@include("home.components._header")
+@include("home.components._navbar")
+<div class="wrapper">
+    @include("home.user.userpanel")
+</div>
+@include("home.components._footer")
+
+</body>
 <body>

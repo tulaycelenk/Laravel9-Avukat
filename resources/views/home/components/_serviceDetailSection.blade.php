@@ -143,12 +143,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="" class="form-control" placeholder="Name*">
+                                    <input type="text" name="Name*" class="form-control" placeholder="Name*">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="" class="form-control" placeholder="Email Id*">
+                                    <input type="text" name="Email Id*" class="form-control" placeholder="Email Id*">
                                 </div>
                             </div>
                         </div>

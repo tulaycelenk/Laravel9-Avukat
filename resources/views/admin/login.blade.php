@@ -20,21 +20,21 @@
 <div class="container">
     <div class="row text-center " style="padding-top:100px;">
         <div class="col-md-12">
-            <img src="assets/img/logo-invoice.png" />
+            <img src="{{asset('assets')}}/assets/img/logo-invoice.png" />
         </div>
     </div>
     <div class="row ">
 
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
             <div class="panel-body">
-                <form action="{{route('loginadmin')}}" method="post">
+                <form action="{{route('loginadmincheck')}}" method="post">
                     @csrf
                     <hr />
                     <h5>Enter Details to Login</h5>
                     <br />
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                        <input type="text" name="name" class="form-control" placeholder="Your Username " />
+                        <input type="email" name="email" class="form-control" placeholder="Your Email " />
                     </div>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
@@ -46,7 +46,7 @@
                         </label>
                     </div>
 
-                    <a href="index.html" class="btn btn-primary ">Login Now</a>
+                    <input type="submit" value="Login Now">
                     <hr />
                     Not register ? <a href="/registeruser" >click here </a> or go to <a href="/admin">Home</a>
                 </form>

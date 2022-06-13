@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Kanun - Law Firm Website Template</title>
+    <title>Kanun - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Law Firm Website Template" name="keywords">
-    <meta content="Law Firm Website Template" name="description">
+    <meta content="@yield('keywords')" name="keywords">
+    <meta content="@yield('description')" name="description">
     <meta name="author" content="John Doe">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -36,8 +36,6 @@
 @show
 @include("home.components._topFeature")
 @include("home.components._about")
-@include("home.components._favoriteCategories")
-@include("home.components._favoriteServices")
 @include("home.components._service")
 @include("home.components._feature")
 @include("home.components._team")

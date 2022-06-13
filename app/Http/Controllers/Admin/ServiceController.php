@@ -55,9 +55,7 @@ class ServiceController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
-
         return redirect('admin/service');
-
     }
 
     /**
@@ -70,7 +68,6 @@ class ServiceController extends Controller
     {
         $data = Service::find($id);
         return view('admin.service.show', ['data' => $data]);
-
     }
 
     /**
@@ -81,8 +78,6 @@ class ServiceController extends Controller
      */
     public function edit(Service $service, $id)
     {
-        //
-
         $data = Service::find($id);
         $datalist = Category::all();
         return view('admin.service.edit',

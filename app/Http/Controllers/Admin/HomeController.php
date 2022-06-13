@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Settings;
+use App\Models\Setting;
+
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class HomeController extends Controller
 {
@@ -15,21 +17,28 @@ class HomeController extends Controller
 
     public function setting(){
 
-        $data=Settings::first();
+        $data=Setting::first();
         if ($data===null) //if setting table is empty add one record
         {
-            $data=new Settings();
+            $data=new Setting();
             $data->title ='project title';
             $data->save();
-            $data= Settings::first();
+            $data= Setting::first();
         }
         return view('admin.setting',['data' => $data]);
     }
 
-    public function settingUpdate(Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Setting $setting
+     * @return \Illuminate\Http\Response
+     */
+    public function settingUpdate(Request $request,Setting $setting)
     {
         $id = $request->input('id');
-        $data = Settings::find($id);
+        $data = Setting::find($id);
         $data->title = $request->input('title');
         $data->keywords = $request->input('keywords');
         $data->description = $request->input('description');

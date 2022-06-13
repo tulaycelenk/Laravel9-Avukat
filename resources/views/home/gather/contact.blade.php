@@ -1,2 +1,2 @@
 @extends('layouts.contact')
-@yield('contact')
+@section('title','Contact')

@@ -8,7 +8,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-head-line">{{$data->title}}</h1>
-
                 </div>
             </div>
             <!-- /. ROW  -->

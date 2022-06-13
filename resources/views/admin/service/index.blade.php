@@ -22,8 +22,8 @@
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
                     <th scope="col">Image</th>
-                    <th scope="col">Image Gallery</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Image Gallery</th>
                     <th scope="col" >Edit</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Show</th>
@@ -36,12 +36,13 @@
                         <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</td>
                         <td>{{$rs->title}}</td>
                         <td>{{$rs->price}}</td>
+
                         <th>
                             @if($rs->image)
                                 <img src="{{Storage::url($rs->image)}}" style="height : 40px">
                             @endif
                         </th>
-
+                        <td>{{$rs->status}}</td>
 
                         <td> <a href="{{route('admin.image.index',['sid'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100, height=700')" >
                                 <img src="{{asset('assets')}}/admin/img/images.png" style="height : 40px"></a></td>
